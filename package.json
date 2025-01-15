@@ -1,5 +1,5 @@
 {
-	"name": "grammar-matcher",
+	"name": "cfg-string-matcher",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -10,7 +10,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"deploy": "gh-pages -d build -t"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
@@ -23,6 +24,7 @@
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
+		"gh-pages": "^6.3.0",
 		"globals": "^15.0.0",
 		"mdsvex": "^0.11.2",
 		"prettier": "^3.3.2",
