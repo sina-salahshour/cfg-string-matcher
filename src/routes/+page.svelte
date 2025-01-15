@@ -8,7 +8,7 @@
 
 	type Grammar = Record<string, Array<string[]> | undefined>;
 
-	let input_grammar = $state('');
+	let input_grammar = $state('S -> a S b | $;');
 	let converted_grammar: Grammar = $state({});
 	function push_rule(rules: string[][], new_rule: string[]) {
 		if (!rules.find((rule) => JSON.stringify(rule) == JSON.stringify(new_rule))) {
@@ -275,6 +275,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>CFG string matcher</title>
+</svelte:head>
 <div
 	class={css({
 		height: '100dvh',
@@ -325,7 +328,7 @@
 						},
 						{ value: '\n', is_highlighted: false }
 					])}
-				initialValue="test is this the real life is this just fantasy"
+				initialValue="aaaabbbb"
 			/>
 		</Card>
 	</div>
