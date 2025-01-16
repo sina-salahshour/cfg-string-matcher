@@ -23,7 +23,12 @@
 		flexDirection: 'column',
 		padding: '8px',
 		flex: '1',
-		gap: '8px'
+		gap: '8px',
+		shadow: 'sm',
+		transition: 'all 300ms',
+		_hover: {
+			shadow: 'lg'
+		}
 	})}
 >
 	<header
@@ -37,7 +42,12 @@
 			alignItems: 'center',
 			justifyContent: 'center',
 			fontWeight: 'semibold',
-			flexShrink: '0'
+			flexShrink: '0',
+			shadow: 'sm',
+			transition: 'all 300ms',
+			_hover: {
+				shadow: 'none'
+			}
 		})}
 	>
 		{@render header()}
@@ -55,8 +65,12 @@
 			transition: 'all 300ms',
 			overflowY: 'auto',
 			overflowX: 'hidden',
+			shadow: is_ediable ? 'sm' : 'none',
+			border: '1px solid transparent',
 			_focusWithin: {
-				background: '#B9B9B970'
+				background: '#B9B9B970',
+				shadow: 'none',
+				borderColor: '#B9B9B9'
 			}
 		})}
 	>
