@@ -50,6 +50,7 @@
 		{/each}
 	</div>
 	<textarea
+		id="highlighter"
 		onscroll={(e) => {
 			if (highlight_container) {
 				highlight_container.scrollTo({ top: e.currentTarget.scrollTop });

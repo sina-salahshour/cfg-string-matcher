@@ -25,7 +25,7 @@
 			gap: '12px'
 		})}
 	>
-		<Card>
+		<Card label_for="cfg_grammar">
 			{#snippet header()}
 				CFG Grammar
 			{/snippet}
@@ -48,7 +48,7 @@
 			{/snippet}
 			<div class={css({ whiteSpace: 'pre-wrap' })}>{grammar_matcher.grammar_cnf_str}</div>
 		</Card>
-		<Card>
+		<Card label_for="highlighter">
 			{#snippet header()}
 				Test string
 			{/snippet}

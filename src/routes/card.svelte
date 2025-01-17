@@ -2,6 +2,7 @@
 	export interface CardProps {
 		children?: Snippet;
 		header?: Snippet;
+		label_for?: string;
 		is_ediable?: boolean;
 	}
 </script>
@@ -10,8 +11,9 @@
 	import { css } from 'styled-system/css';
 
 	import type { Snippet } from 'svelte';
+	import { displayPartsToString } from 'typescript';
 
-	const { children, header, is_ediable = true } = $props();
+	const { children, header, is_ediable = true, label_for }: CardProps = $props();
 </script>
 
 <section
@@ -31,27 +33,41 @@
 		}
 	})}
 >
-	<header
-		class={css({
-			background: '#D9D9D980',
-			borderRadius: '8px',
-			height: '64px',
-			color: 'gray',
-			textAlign: 'center',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			fontWeight: 'semibold',
-			flexShrink: '0',
-			shadow: 'sm',
-			transition: 'all 300ms',
-			_hover: {
-				shadow: 'none'
-			}
-		})}
-	>
-		{@render header()}
-	</header>
+	<label for={label_for}>
+		<header
+			class={css({
+				background: '#D9D9D980',
+				borderRadius: '8px',
+				height: '64px',
+				color: 'gray',
+				textAlign: 'center',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				fontWeight: 'semibold',
+				flexShrink: '0',
+				shadow: 'sm',
+				transition: 'all 300ms',
+				border: '1px solid transparent',
+				...(is_ediable
+					? {
+							cursor: 'pointer',
+							_hover: {
+								shadow: 'none'
+							},
+							_active: {
+								background: '#B9B9B970',
+								transform: 'translateY(2px)'
+							}
+						}
+					: {
+							background: 'transparent'
+						})
+			})}
+		>
+			{@render header?.()}
+		</header>
+	</label>
 	<main
 		class={css({
 			background: is_ediable ? '#D9D9D980' : 'transparent',
@@ -65,7 +81,7 @@
 			transition: 'all 300ms',
 			overflowY: 'auto',
 			overflowX: 'hidden',
-			shadow: is_ediable ? 'sm' : 'none',
+			shadow: 'sm',
 			border: '1px solid transparent',
 			_focusWithin: {
 				background: '#B9B9B970',
@@ -74,6 +90,6 @@
 			}
 		})}
 	>
-		{@render children()}
+		{@render children?.()}
 	</main>
 </section>
