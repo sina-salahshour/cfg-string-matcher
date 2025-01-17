@@ -11,7 +11,6 @@
 	import { css } from 'styled-system/css';
 
 	import type { Snippet } from 'svelte';
-	import { displayPartsToString } from 'typescript';
 
 	const { children, header, is_ediable = true, label_for }: CardProps = $props();
 </script>
